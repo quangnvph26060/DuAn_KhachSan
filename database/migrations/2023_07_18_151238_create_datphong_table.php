@@ -13,6 +13,19 @@ return new class extends Migration
     {
         Schema::create('datphong', function (Blueprint $table) {
             $table->id();
+            $table->string('ten_kh');
+            $table->string('sdt_kh');
+            $table->string('dia_chi');
+            $table->string('email')->unique();
+            $table->date('ngay_den')->nullable();
+            $table->date('ngay_di')->nullable();
+            $table->integer('so_luong_khach');
+            $table->string('ghi_chu');
+            $table->tinyInteger('trang_thai_thanh_toan')->default(1);
+            $table->tinyInteger('trang_thai_dat_phong')->default(1);
+            $table->foreignId('id_phong')->constrained('phong');
+            $table->foreignId('id_khachhang')->constrained('khachhang');
+            $table->foreignId('id_dichvu')->constrained('dichvu');
             $table->timestamps();
         });
     }

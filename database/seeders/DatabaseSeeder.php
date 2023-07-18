@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             LoaiPhongSeeder::class,
             PhongSeeder::class,
             KhachHangSeeder::class,
-            DichVuSeeder::class
+            DichVuSeeder::class,
+            DatPhongSeeder::class
         ]);
     }
 }
