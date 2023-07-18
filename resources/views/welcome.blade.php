@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <h1>Hêlllll</h1>
 <h2>Anh quang </h2>
+<h3> abc</h3>
 
     <head>
         <meta charset="utf-8">
