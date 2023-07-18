@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
 
             BannerSeeder::class,
-            LoaiPhongSeeder::class
+            LoaiPhongSeeder::class,
+            PhongSeeder::class
         ]);
     }
 }
