@@ -29,7 +29,7 @@ class DatPhongSeeder extends Seeder
                 'trang_thai_thanh_toan' => 1,
                 'trang_thai_dat_phong' => 1,
                 'id_phong' => 1,
-                'id_khachhang' => 10,
+                'id_khachhang' => 5,
                 'id_dichvu' => 1
 
 
