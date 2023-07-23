@@ -22,7 +22,11 @@ class DatabaseSeeder extends Seeder
             KhachHangSeeder::class,
             DichVuSeeder::class,
             DatPhongSeeder::class,
+<<<<<<< HEAD
             HoaDonSeeder::class
+=======
+            UserSeeder::class
+>>>>>>> 8bb3671666a41c7a4196131864c02afeb87ca3fa
         ]);
     }
 }
