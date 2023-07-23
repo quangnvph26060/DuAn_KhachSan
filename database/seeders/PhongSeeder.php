@@ -28,6 +28,7 @@ class PhongSeeder extends Seeder
                 'gia_phong'=>1000,
                 'giam_gia'=>9900,
                 'trang_thai'=>1,
+                'noi_bat'=>1,
                 'mo_ta'=>'phong dep',
                 'hinh_anh'=>'anh1.jpg',
                 'id_loaiphong'=>1

@@ -68,7 +68,10 @@ Route::prefix('admin')->group(function () {
     Route::prefix('product')->group(function () {
         Route::get('', [ProductController::class, 'GetProduct']);
         Route::get('/add', [ProductController::class, 'GetAddProduct']);
-        Route::get('/edit', [ProductController::class, 'GetEditProduct']);
+        Route::post('/add', [ProductController::class, 'PostAddProduct']);
+        Route::get('/edit/{id}', [ProductController::class, 'GetEditProduct']);
+        Route::post('/edit/{id}', [ProductController::class, 'PostEditProduct']);
+        Route::get('/delete/{id}', [ProductController::class, 'GetDeleteProduct']);
 
     });
 

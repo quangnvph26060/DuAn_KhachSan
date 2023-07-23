@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('gia_phong');
             $table->integer('giam_gia');
             $table->tinyInteger('trang_thai')->default(1);
+            $table->tinyInteger('noi_bat')->default(1);
             $table->string('mo_ta');
             $table->string('hinh_anh');
             $table->foreignId('id_loaiphong')->constrained('loaiphong');

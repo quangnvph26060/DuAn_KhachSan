@@ -9,14 +9,14 @@
 				<li><a href="#"><svg class="glyph stroked home">
 							<use xlink:href="#stroked-home"></use>
 						</svg></a></li>
-				<li class="active">Danh sách sản phẩm</li>
+				<li class="active">Danh sách phòng</li>
 			</ol>
 		</div>
 		<!--/.row-->
 
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Danh sách sản phẩm</h1>
+				<h1 class="page-header">Danh sách phòng</h1>
 			</div>
 		</div>
 		<!--/.row-->
@@ -29,12 +29,14 @@
 					<div class="panel-body">
 						<div class="bootstrap-table">
 							<div class="table-responsive">
+								@if (session('thongbao'))
 								<div class="alert bg-success" role="alert">
 									<svg class="glyph stroked checkmark">
 										<use xlink:href="#stroked-checkmark"></use>
-									</svg>Đã thêm thành công<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+									</svg>{{session('thongbao')}}<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
 								</div>
-								<a href="addproduct.html" class="btn btn-primary">Thêm sản phẩm</a>
+								@endif
+								<a href="/admin/product/add" class="btn btn-primary">Thêm sản phẩm</a>
 								<table class="table table-bordered" style="margin-top:20px;">
 
 									<thead>
@@ -42,71 +44,53 @@
 											<th>ID</th>
 											<th>Thông tin sản phẩm</th>
 											<th>Giá sản phẩm</th>
-											<th>Tình trạng</th>
+											<th>Giảm giá</th>
+											<th>Trạng thái</th>
 											<th>Danh mục</th>
 											<th width='18%'>Tùy chọn</th>
 										</tr>
 									</thead>
 									<tbody>
-									
+										@foreach ($phongs as $phong)
 										<tr>
-											<td>1</td>
+											<td>{{$phong->id}}</td>
 											<td>
 												<div class="row">
-													<div class="col-md-3"><img src="img/ao-khoac.jpg" alt="Áo đẹp" width="100px" class="thumbnail"></div>
+													<div class="col-md-3"><img src="/storage/{{$phong->hinh_anh}}" width="100px" class="thumbnail"></div>
 													<div class="col-md-9">
-														<p><strong>Mã sản phẩm : SP01</strong></p>
-														<p>Tên sản phẩm :Áo Khoác Bomber Nỉ Xanh Lá Cây AK179</p>
 														
+														<p style="margin-right: 10%"><strong>Tên phòng : {{$phong->ten_phong}}</strong></p>
+														<p>Mô tả : {{$phong->mo_ta}}</p>
 														
 													</div>
 												</div>
 											</td>
-											<td>500.000 VND</td>
+											<td>{{$phong->gia_phong}} VNĐ</td>
+											<td>{{$phong->giam_gia}} VNĐ</td>
 											<td>
-												<a class="btn btn-success" href="#" role="button">Còn hàng</a>
-											</td>
-											<td>Áo Khoác Nam</td>
-											<td>
-												<a href="#" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
-												<a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
-											</td>
-										</tr>
-										<tr>
-											<td>1</td>
-											<td>
-												<div class="row">
-													<div class="col-md-3"><img src="img/ao-khoac.jpg" alt="Áo đẹp" width="100px" class="thumbnail"></div>
-													<div class="col-md-9">
-														<p><strong>Mã sản phẩm : SP01</strong></p>
-														<p>Tên sản phẩm :Áo Khoác Bomber Nỉ Xanh Lá Cây AK179</p>
-														
-														
-													</div>
-												</div>
-											</td>
-											<td>500.000 VND</td>
-											<td>
-												<a class="btn btn-danger" href="#" role="button">hết hàng</a>
-											</td>
-											<td>Áo Khoác Nam</td>
-											<td >
-												<a href="#" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
-												<a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
-											</td>
-										</tr>
 
+												@if ($phong->trang_thai==1)
+													<a class="btn btn-success" href="#" role="button">Còn Phòng</a>
+												@else
+													<a class="btn btn-danger" href="#" role="button">Hết Phòng</a>
+												@endif
+
+												
+											</td>
+											<td>{{$phong->loaiphong->loaiphong}}</td>
+											<td>
+												<a href="/admin/product/edit/{{$phong->id}}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
+												<a onclick="return confirm('Bạn có muốn xóa phòng: {{$phong->ten_phong}} không')"  href="/admin/product/delete/{{$phong->id}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
+											</td>
+										</tr>
+										@endforeach
+										
+										
 
 									</tbody>
 								</table>
 								<div align='right'>
-									<ul class="pagination">
-										<li class="page-item"><a class="page-link" href="#">Trở lại</a></li>
-										<li class="page-item"><a class="page-link" href="#">1</a></li>
-										<li class="page-item"><a class="page-link" href="#">2</a></li>
-										<li class="page-item"><a class="page-link" href="#">3</a></li>
-										<li class="page-item"><a class="page-link" href="#">tiếp theo</a></li>
-									</ul>
+									{{$phongs->links('pagination::default')}}
 								</div>
 							</div>
 							<div class="clearfix"></div>
