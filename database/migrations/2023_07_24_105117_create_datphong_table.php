@@ -24,7 +24,7 @@ return new class extends Migration
             $table->tinyInteger('trang_thai_thanh_toan')->default(1);
             $table->tinyInteger('trang_thai_dat_phong')->default(1);
             $table->foreignId('id_phong')->constrained('phong');
-            $table->foreignId('id_khachhang')->constrained('khachhang');
+            $table->foreignId('id_taikhoan')->constrained('taikhoan');
             $table->foreignId('id_dichvu')->constrained('dichvu');
             $table->timestamps();
         });

@@ -7,13 +7,15 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-class KhachHangSeeder extends Seeder
+
+class TaiKhoanSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
+        //
         $data= []; // mảng rỗng
         for ($i = 0 ; $i<5 ; $i++){
             $data[] = [
@@ -27,6 +29,6 @@ class KhachHangSeeder extends Seeder
                 'phan_quyen'=>1
             ];
         }
-        DB::table('khachhang')->insert($data);
+        DB::table('taikhoan')->insert($data);
     }
 }

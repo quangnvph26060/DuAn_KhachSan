@@ -16,7 +16,7 @@ return new class extends Migration
             $table->tinyInteger('pttt')->default(1);
             $table->float('tong_tien');
             $table->date('ngay_lap_hoadon');
-            $table->foreignId('id_kh')->constrained('khachhang');
+            $table->foreignId('id_taikhoan')->constrained('taikhoan');
             $table->foreignId('id_dat_phong')->constrained('datphong');
             $table->timestamps();
         });

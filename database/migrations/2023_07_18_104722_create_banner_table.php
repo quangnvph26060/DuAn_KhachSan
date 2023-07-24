@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('banner', function (Blueprint $table) {
             $table->id();
             $table->string('banner');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

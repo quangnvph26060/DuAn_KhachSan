@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('mo_ta');
             $table->string('hinh_anh');
             $table->foreignId('id_loaiphong')->constrained('loaiphong');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

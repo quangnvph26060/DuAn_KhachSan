@@ -22,8 +22,8 @@ class HoaDonSeeder extends Seeder
                 'pttt'=> 1,
                 'tong_tien'=>120000,
                 'ngay_lap_hoadon'=>'2023/11/30',
-                'id_kh'=>9,
-                'id_dat_phong'=>26,
+                'id_taikhoan'=>3,
+                'id_dat_phong'=>4,
             ];
         }
         DB::table('hoadon')->insert($data);

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('khachhang', function (Blueprint $table) {
+        Schema::create('taikhoan', function (Blueprint $table) {
             $table->id();
             $table->string('ho_ten');
             $table->string('mat_khau');
@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('cmnd')->unique();
             $table->tinyInteger('gioi_tinh')->default(1);
             $table->tinyInteger('phan_quyen')->default(1);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('khachhang');
+        Schema::dropIfExists('taikhoan');
     }
 };

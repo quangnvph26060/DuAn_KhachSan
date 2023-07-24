@@ -19,12 +19,12 @@ class DatabaseSeeder extends Seeder
             BannerSeeder::class,
             LoaiPhongSeeder::class,
             PhongSeeder::class,
-            KhachHangSeeder::class,
+            TaiKhoanSeeder::class,
             DichVuSeeder::class,
             DatPhongSeeder::class,
-
             HoaDonSeeder::class,
-
+            
+            GioHangSeeder::class,
             UserSeeder::class,
 
         ]);
