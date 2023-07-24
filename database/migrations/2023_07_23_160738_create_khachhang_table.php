@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('khachhang', function (Blueprint $table) {
             $table->id();
             $table->string('ho_ten');
-            $table->string('tai_khoan');
             $table->string('mat_khau');
             $table->string('sdt');
             $table->string('dia_chi');

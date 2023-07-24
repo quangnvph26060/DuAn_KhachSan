@@ -14,13 +14,10 @@ class KhachHangSeeder extends Seeder
      */
     public function run(): void
     {
-
-
         $data= []; // mảng rỗng
         for ($i = 0 ; $i<5 ; $i++){
             $data[] = [
                 'ho_ten'=> 'nguyễn văn a',
-                'tai_khoan'=>'admin',
                 'mat_khau'=>'abc123',
                 'sdt'=>'092345345',
                 'dia_chi'=>'hà nội',
@@ -28,7 +25,6 @@ class KhachHangSeeder extends Seeder
                 'cmnd'=>'0012033454563'.$i,
                 'gioi_tinh'=>1,
                 'phan_quyen'=>1
-
             ];
         }
         DB::table('khachhang')->insert($data);

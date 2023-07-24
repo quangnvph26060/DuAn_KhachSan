@@ -50,9 +50,9 @@ Route::prefix('cart')->group(function () {
 Route::prefix('admin')->group(function () {
     Route::get('', [IndexController::class, 'GetIndex']);
 
-    //login
-    Route::get('login', [LoginController::class, 'GetLogin']);
-
+    // tài khoản
+    Route::get('login', [LoginController::class, 'GetLogin'])->name('admin.login');
+    Route::get('register', [LoginController::class, 'GetRegister'])->name('admin.register');
     // Category
     Route::prefix('category')->group(function () {
         // add

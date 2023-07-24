@@ -53,6 +53,8 @@
 								<li><a href="/about">Giới thiệu</a></li>
 								<li><a href="/contact">Liên hệ</a></li>
 								<li><a href="/cart"><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a></li>
+                                <li><a href="{{route('admin.register')}}">Đăng Ký</a></li>/
+                                <li><a href="{{route('admin.login')}}">Đăng Nhập</a></li>
 							</ul>
 						</div>
 					</div>
@@ -125,7 +127,7 @@
 		<div id="colorlib-subscribe">
 			<div class="overlay"></div>
 			<div class="container">
-				<div class="row"> 	
+				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
 						<div class="col-md-6 text-center">
 							<h2><i class="icon-paperplane"></i>Đăng ký nhận bản tin</h2>

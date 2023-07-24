@@ -10,4 +10,9 @@ class LoginController extends Controller
     public function GetLogin(){
         return view("backend.login.login");
     }
+    // đăng ký
+    public  function GetRegister(){
+
+        return view("backend.login.register");
+    }
 }
