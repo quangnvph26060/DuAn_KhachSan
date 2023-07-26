@@ -54,5 +54,12 @@ class CategoryController extends Controller
             Session::flash('success', 'Xóa phòng thành công');
             return redirect()->route('category.add');
         }
+
+
+    }
+    public function Abc(){
+        $category = CategoryModel::withTrashed()->find(4);
+        $category->restore();
+
     }
 }

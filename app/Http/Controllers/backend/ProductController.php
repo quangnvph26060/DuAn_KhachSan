@@ -34,10 +34,9 @@ class ProductController extends Controller
     {
 
         $params = $r->except('_token');
-        print_r($params);
         $loais = new CategoryModel();
         $phongs = new ProductModel();
-        $phongs->id_loaiphong = $loais->id = $r->id_loaiphong;
+        $phongs->id_loaiphong  = $r->id_loaiphong;
         // $phongs->$loais->id = $r->id_loaiphong;
         $phongs->ten_phong = $r->ten_phong;
         $phongs->gia_phong = $r->gia_phong;
@@ -50,7 +49,7 @@ class ProductController extends Controller
                 $phongs->hinh_anh= $r->hinh_anh = uploadFile('hinh', $r->file('hinh_anh'));
             }
             $params['hinh_anh'] = $r->hinh_anh;
-            
+
         }
         $phongs->save();
 
@@ -58,7 +57,7 @@ class ProductController extends Controller
     }
     //view ra form edit phòng
     public function GetEditProduct($id)
-    {   
+    {
         $phong = ProductModel:: find($id);
         $loais = CategoryModel::all();
         return view("backend.product.editproduct",compact('phong','loais'));
@@ -90,4 +89,5 @@ class ProductController extends Controller
         ProductModel::destroy($id);
         return redirect('admin/product')->with('thongbao', 'Bạn đã xóa phòng thành công');
     }
+    //
 }
