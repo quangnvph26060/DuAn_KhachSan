@@ -58,7 +58,6 @@
 												<div class="row">
 													<div class="col-md-3"><img src="/storage/{{$phong->hinh_anh}}" width="100px" class="thumbnail"></div>
 													<div class="col-md-9">
-														
 														<p style="margin-right: 10%"><strong>Tên phòng : {{$phong->ten_phong}}</strong></p>
 														<p>Mô tả : {{$phong->mo_ta}}</p>
 														

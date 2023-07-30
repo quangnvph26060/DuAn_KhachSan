@@ -15,12 +15,12 @@ class TaiKhoanSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        
         $data= []; // mảng rỗng
         for ($i = 0 ; $i<5 ; $i++){
             $data[] = [
                 'ho_ten'=> 'nguyễn văn a',
-                'mat_khau'=>'abc123',
+                'password'=>bcrypt('abc123'),
                 'sdt'=>'092345345',
                 'dia_chi'=>'hà nội',
                 'email'=>'nguyenvana '.$i. '@gmail.com',
@@ -29,6 +29,20 @@ class TaiKhoanSeeder extends Seeder
                 'phan_quyen'=>1
             ];
         }
+
+       
         DB::table('taikhoan')->insert($data);
+
+
+        // DB::table('taikhoan')->insert([
+        //     'ho_ten'=> 'nguyễn văn a',
+        //     'mat_khau'=>bcrypt('123456'),
+        //     'sdt'=>'092345345',
+        //     'dia_chi'=>'hà nội',
+        //     'email'=>'namntph26026@fpt.edu.vn',
+        //     'cmnd'=>'0012033454512',
+        //     'gioi_tinh'=>1,
+        //     'phan_quyen'=>1
+        // ]);
     }
 }

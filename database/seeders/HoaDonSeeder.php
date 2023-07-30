@@ -23,7 +23,7 @@ class HoaDonSeeder extends Seeder
                 'tong_tien'=>120000,
                 'ngay_lap_hoadon'=>'2023/11/30',
                 'id_taikhoan'=>3,
-                'id_dat_phong'=>4,
+                'id_dat_phong'=>7,
             ];
         }
         DB::table('hoadon')->insert($data);

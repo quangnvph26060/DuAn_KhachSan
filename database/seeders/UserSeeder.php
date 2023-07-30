@@ -15,14 +15,20 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $data= []; // mảng rỗng
-        for ($i = 0 ; $i<5 ; $i++){
-            $data[] = [
-                'name'=>"Văn a",
-                'email'=>'nguyenvana '.$i. '@gmail.com',
-                'password'=>"123"
-            ];
-        }
-        DB::table('users')->insert($data);
+        // $data= []; // mảng rỗng
+        // for ($i = 0 ; $i<5 ; $i++){
+        //     $data[] = [
+        //         'name'=>"Văn a",
+        //         'email'=>'nguyenvana '.$i. '@gmail.com',
+        //         'password'=>"123"
+        //     ];
+        // }
+        // DB::table('users')->insert($data);
+
+            DB::table('users')->insert([
+                'name'=>"nam1",
+                'email'=>'nguyenvana@gmail.com12',
+                'password'=>bcrypt('123456')
+        ]);
     }
 }
