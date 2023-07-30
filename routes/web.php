@@ -6,6 +6,7 @@ use App\Http\Controllers\backend\LoginController;
 use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\UserController;
+use App\Http\Controllers\backend\BannerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\fontend\RoomController;
 use Illuminate\Support\Facades\Route;
@@ -50,6 +51,11 @@ Route::prefix('cart')->group(function () {
 //backend giao diện admin
 
 Route::prefix('admin')->group(function () {
+    //edit banner
+
+    Route::match(['GET','POST'],'banner',[BannerController::class,'Banner'])->name('banner');
+    Route::match(['GET','POST'],'getbanner/{id}',[BannerController::class,'getBanner'])->name('getbanner');
+    Route::get('deletebanner/{id}',[BannerController::class,'DeleteBanner'])->name('deletebanner');
     Route::get('', [IndexController::class, 'GetIndex']);
 
     // tài khoản
