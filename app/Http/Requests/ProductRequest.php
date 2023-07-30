@@ -36,7 +36,7 @@ class ProductRequest extends FormRequest
                         break;
                     case 'PostEditProduct':
                         $rules=[
-                            'ten_phong'=>'required',
+                            'ten_phong'=>'required|unique:phong,ten_phong,'.$this->id.',id',
                             'gia_phong'=>'required|numeric|min:0.01',
                             'giam_gia'=>'required|numeric|min:0.01',
                         ];

@@ -45,22 +45,22 @@ Route::prefix('cart')->group(function () {
     Route::get('', [HomeController::class, 'GetCart']);
 });
 
-//backend giao diện admin
-
-Route::prefix('admin')->group(function () {
+// //backend giao diện admin
+// Route::match(['GET','POST'],'login',[LoginController::class,'GetLogin'])->name('admin.login');
+Route::get('login', [LoginController::class, 'GetLogin'])->middleware('CheckLogout')->name('admin.login');
+Route::post('login', [LoginController::class, 'PostLogin'])->name('admin.login');
+Route::prefix('admin')->middleware('CheckLogin')->group(function () {
     Route::get('', [IndexController::class, 'GetIndex']);
-
-    // tài khoản
-    Route::get('login', [LoginController::class, 'GetLogin'])->name('admin.login');
+    Route::get('logout', [IndexController::class, 'GetLogout']);
     Route::get('register', [LoginController::class, 'GetRegister'])->name('admin.register');
     // Category
     Route::prefix('category')->group(function () {
         // add
-        Route::match(['GET','POST'],'add',[CategoryController::class,'GetCategory'])->name('category.add');
+        Route::match(['GET', 'POST'], 'add', [CategoryController::class, 'GetCategory'])->name('category.add');
         // edit
-        Route::match(['GET','POST'],'edit/{id}',[CategoryController::class,'GetEditCategory'])->name('category.edit');
+        Route::match(['GET', 'POST'], 'edit/{id}', [CategoryController::class, 'GetEditCategory'])->name('category.edit');
         // delete
-        Route::get('delete/{id}',[CategoryController::class,'DeleteCategory'])->name('category.delete');
+        Route::get('delete/{id}', [CategoryController::class, 'DeleteCategory'])->name('category.delete');
     });
 
 
@@ -72,7 +72,6 @@ Route::prefix('admin')->group(function () {
         Route::get('/edit/{id}', [ProductController::class, 'GetEditProduct']);
         Route::post('/edit/{id}', [ProductController::class, 'PostEditProduct']);
         Route::get('/delete/{id}', [ProductController::class, 'GetDeleteProduct']);
-
     });
 
     //user
@@ -88,6 +87,4 @@ Route::prefix('admin')->group(function () {
         Route::get('/detail', [OrderController::class, 'GetDetailOrder']);
         Route::get('/processed', [OrderController::class, 'GetProcessed']);
     });
-
-
 });

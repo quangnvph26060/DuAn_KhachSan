@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('taikhoan', function (Blueprint $table) {
             $table->id();
             $table->string('ho_ten');
-            $table->string('mat_khau');
+            $table->string('password');
             $table->string('sdt');
             $table->string('dia_chi');
             $table->string('email')->unique();
@@ -22,6 +22,7 @@ return new class extends Migration
             $table->tinyInteger('gioi_tinh')->default(1);
             $table->tinyInteger('phan_quyen')->default(1);
             $table->softDeletes();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
