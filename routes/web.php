@@ -7,6 +7,7 @@ use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\fontend\RoomController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +33,8 @@ Route::get('/about', [HomeController::class, 'GetAbout']);
 Route::get('/contact', [HomeController::class, 'GetContact']);
 
 Route::prefix('product')->group(function () {
-    Route::get('/shop', [HomeController::class, 'GetShop']);
+    Route::get('/shop', [RoomController::class, 'GetShop']);
+    Route::get('/shopdetail/{id}', [RoomController::class, 'GetShopDetail'])->name('shopdetail');
     Route::get('/detail', [HomeController::class, 'GetDetail']);
 });
 
@@ -66,7 +68,7 @@ Route::prefix('admin')->middleware('CheckLogin')->group(function () {
 
     //product
     Route::prefix('product')->group(function () {
-        Route::get('', [ProductController::class, 'GetProduct']);
+        Route::get('', [ProductController::class, 'GetProduct'])->name('product');
         Route::get('/add', [ProductController::class, 'GetAddProduct']);
         Route::post('/add', [ProductController::class, 'PostAddProduct']);
         Route::get('/edit/{id}', [ProductController::class, 'GetEditProduct']);

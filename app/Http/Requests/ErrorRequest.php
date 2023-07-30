@@ -36,7 +36,7 @@ class ErrorRequest extends FormRequest
                             break;
                         case 'GetEditCategory':
                             $rules = [
-                                'loaiphong' => 'required|min:6|unique:loaiphong,loaiphong',
+                                'loaiphong' => 'required|min:6|unique:loaiphong,loaiphong,'.$this->id.'id',
                             ];
                             break;
                         default:
