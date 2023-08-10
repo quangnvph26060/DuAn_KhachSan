@@ -16,4 +16,7 @@ class IndexController extends Controller
         Auth::logout();
         return redirect('');
     }
+    public function abc(){
+        
+    }
 }
